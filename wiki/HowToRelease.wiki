@@ -1,0 +1,12 @@
+#summary How to perform a release
+
+= Deploying javadocs =
+
+Prereq:
+ * Ensure that your subversion configuration is setup with auto-properties for mime types. Instructions [http://svnbook.red-bean.com/en/1.4/svn.advanced.props.html#svn.advanced.props.auto here]
+
+Steps:
+ * mvn clean javadoc:javadoc
+ * cd target/site/
+ * svn rm https://jetlang.googlecode.com/svn/site/ -m "removing previous version of site in prep for update"
+ * svn import site https://jetlang.googlecode.com/svn/site/ -m "updating site"
