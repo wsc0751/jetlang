@@ -1,4 +1,5 @@
 #summary How to perform a release
+#labels Phase-Implementation
 
 = Creating Releases =
 
