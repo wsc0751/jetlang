@@ -1,12 +1,32 @@
 #summary How to perform a release
 
-= Deploying javadocs =
+= Deploying Maven Site =
 
-Prereq:
- * Ensure that your subversion configuration is setup with auto-properties for mime types. Instructions [http://svnbook.red-bean.com/en/1.4/svn.advanced.props.html#svn.advanced.props.auto here]
+== Prereq ==
+ Configure your maven settings file to define your google code credentials. The file lives at *$HOME/.m2/settings.xml*. Ensure it contains the following block:
 
-Steps:
- * mvn clean javadoc:javadoc
- * cd target/site/
- * svn rm https://jetlang.googlecode.com/svn/site/ -m "removing previous version of site in prep for update"
- * svn import site https://jetlang.googlecode.com/svn/site/ -m "updating site"
+{{{
+<settings>
+  <servers>
+    <server>
+        <id>google-code</id>
+        <username>your-user-id</username>
+        <password>your-password</password>
+    </server>
+  </servers>
+</settings>
+}}}
+
+
+== Deploying ==
+
+Run  `mvn clean site-deploy`.
+
+In the case that there are new files added, it is necessary to set the mime type once. You can use the following shell commands on a checkout of the site:
+
+{{{
+find . -name '*.css' | xargs -n 1 svn propset svn:mime-type text/css
+find . -name '*.html' | xargs -n 1 svn propset svn:mime-type text/html
+find . -name '*.gif' | xargs -n 1 svn propset svn:mime-type image/gif
+find . -name '*.png' | xargs -n 1 svn propset svn:mime-type image/png
+}}}
