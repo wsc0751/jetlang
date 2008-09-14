@@ -1,0 +1,38 @@
+#summary How to use Jetlang in your Maven-based project
+#labels Featured
+
+To use Jetlang in your Maven-based project, it will be necessary to add our repository to your pom file. (Or if you use a repository manager, such as [http://nexus.sonatype.org/ Nexus], you can have it mirror our repository)
+
+Add the following segment to your pom:
+
+{{{
+<project>
+    ...
+    <repositories>
+        <repository>
+            <id>jetlang.googlecode.com</id>
+            <name>Jetlang Repository for Maven</name>
+            <url>http://jetlang.googlecode.com/svn/repo/</url>
+        </repository>
+    </repositories>
+    ...
+</project>
+}}}
+
+Now, to use Jetlang, add the following dependency. Replace _DESIRED_VERSION_HERE_ with the version you would like to use.
+
+{{{
+<project>
+    ...
+    <dependencies>
+        ...
+        <dependency>
+            <groupId>org.jetlang</groupId>
+            <artifactId>jetlang</artifactId>
+            <version>_DESIRED_VERSION_HERE_</version>
+        </dependency>
+        ...
+    </dependencies>
+    ...
+</project>
+}}}
