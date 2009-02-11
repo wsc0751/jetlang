@@ -1,19 +1,19 @@
--classpath '/Users/osi/code/java/jetlang/target/classes:/Users/osi/code/java/jetlang/target/test-classes:/Users/osi/.m2/repository/junit/junit/4.4/junit-4.4.jar'
+-classpath '/Users/osi/code/java/jetlang/target/checkout/target/classes:/Users/osi/code/java/jetlang/target/checkout/target/test-classes:/Users/osi/.m2/repository/junit/junit/4.4/junit-4.4.jar'
  -encoding
 'ISO-8859-1'
 -protected
 -sourcepath
-'/Users/osi/code/java/jetlang/src/test/java'
+'/Users/osi/code/java/jetlang/target/checkout/src/test/java'
 -author
 -bottom
-'Copyright &#169; 2008. All Rights Reserved.'
+'Copyright &#169; 2009. All Rights Reserved.'
 -charset
 'ISO-8859-1'
 -d
-'/Users/osi/code/java/jetlang/target/site/testapidocs'
+'/Users/osi/code/java/jetlang/target/checkout/target/site/testapidocs'
 -doctitle
-'Jetlang 0.1.7-SNAPSHOT Test API'
+'Jetlang 0.1.7 Test API'
 -use
 -version
 -windowtitle
-'Jetlang 0.1.7-SNAPSHOT Test API'
+'Jetlang 0.1.7 Test API'
