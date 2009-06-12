@@ -25,7 +25,6 @@ object JetlangPing {
 
 case class Ping()
 case class Pong()
-case class Stop()
 
 object PingActor extends JetlangActor {
   def react() = {
