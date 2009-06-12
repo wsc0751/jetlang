@@ -130,6 +130,13 @@
       <JAVADOC />
       <SOURCES />
     </library>
+    <library name="scalatest">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/scalatest-0.9.5.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
   </component>
 </project>
 
