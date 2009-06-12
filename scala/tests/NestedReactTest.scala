@@ -1,12 +1,12 @@
 import java.util.concurrent.{TimeUnit, CountDownLatch}
-import jetlang.example.JetlangActor
+import jetlang.example.{JetlangThread, JetlangActor}
 import org.scalatest.FunSuite
 
 case class A()
 case class B()
 case class C()
 
-class NestedActor extends JetlangActor {
+class NestedActor extends JetlangActor with JetlangThread {
   val latch = new CountDownLatch(1)
 
   def react() = {

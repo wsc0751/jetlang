@@ -33,7 +33,7 @@ object JetlangMain {
 case class Message(id:Int, payload:String)
 case class StopMessage()
 
-object DownloadActor extends JetlangActor {
+object DownloadActor extends JetlangActor with JetlangThread {
   def react() = {
         case Message(id, payload) => {
           IndexActor !
@@ -47,7 +47,7 @@ object DownloadActor extends JetlangActor {
     }
 }
 
-object IndexActor extends JetlangActor {
+object IndexActor extends JetlangActor with JetlangThread {
   def react() = {
         case Message(id, payload) => {
           //println("Indexed " + id)
@@ -63,7 +63,7 @@ object IndexActor extends JetlangActor {
   }
 }
 
-object WriteActor extends JetlangActor {
+object WriteActor extends JetlangActor with JetlangThread {
   def react() = {
         case Message(id, payload) => {
           //println("Wrote " + id)

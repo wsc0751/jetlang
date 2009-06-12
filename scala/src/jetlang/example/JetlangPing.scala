@@ -26,7 +26,7 @@ object JetlangPing {
 case class Ping()
 case class Pong()
 
-object PingActor extends JetlangActor {
+object PingActor extends JetlangActor with JetlangThread {
   def react() = {
     case Ping => {
       PongActor ! Pong
@@ -34,7 +34,7 @@ object PingActor extends JetlangActor {
   }
 }
 
-object PongActor extends JetlangActor {
+object PongActor extends JetlangActor with JetlangPooled {
   var count = 0
 
   def react() = {
