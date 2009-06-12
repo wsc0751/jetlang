@@ -1,5 +1,5 @@
 import java.util.concurrent.{TimeUnit, CountDownLatch}
-import jetlang.example.{JetlangThread, JetlangActor}
+import jetlang.example.{JetlangPooled, JetlangThread, JetlangActor}
 import org.scalatest.FunSuite
 
 case class A()
@@ -11,14 +11,29 @@ class NestedActor extends JetlangActor with JetlangThread {
 
   def react() = {
     case A => {
-      react {
+      receive {
         case B => {
-          react {
+          receive {
             case C => latch.countDown
           }
         }
       }
     }
+  }
+}
+
+class Reply extends JetlangActor with JetlangThread {
+  def react() = {
+    case B => sender ! C
+  }
+}
+
+class Starter(replyActor: Reply ) extends JetlangActor with JetlangThread {
+  val latch = new CountDownLatch(1)
+
+  def react() = {
+    case A => replyActor ! B
+    case C => latch.countDown
   }
 }
 
@@ -32,5 +47,16 @@ class NestedReactTest extends FunSuite {
 
     assert(actor.latch.await(10, TimeUnit.SECONDS))
     actor.exit
+  }
+
+  test("should reply to sender") {
+    val reply = new Reply()
+    val starter = new Starter(reply)
+    reply.start
+    starter.start
+    starter ! A
+    assert(starter.latch.await(10, TimeUnit.SECONDS))
+    starter.exit
+    reply.exit
   }
 }

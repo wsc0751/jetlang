@@ -55,7 +55,7 @@ object PongActor extends Actor {
           if (count == 1000000)
             ScalaPing.decrementLatch
           else
-            PingActor ! Ping
+            sender ! Ping
         }
         case Stop => {
           exit
