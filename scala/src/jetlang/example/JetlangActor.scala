@@ -41,6 +41,8 @@ object Pool {
     val e = new ActorExecutor(callback)
     fiberFactory.create(e);
   }
+
+  def shutdown() : Unit = executors.shutdown
 }
 
 trait JetlangPooled {

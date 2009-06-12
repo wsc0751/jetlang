@@ -20,6 +20,7 @@ object JetlangPing {
     println("elapsed = " + (System.currentTimeMillis - start))
     PingActor.exit
     PongActor.exit
+    Pool.shutdown
   }
 }
 
