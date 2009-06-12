@@ -20,7 +20,7 @@ object JetlangPing {
     println("elapsed = " + (System.currentTimeMillis - start))
     PingActor.exit
     PongActor.exit
-    Pool.shutdown
+    //Pool.shutdown
   }
 }
 
@@ -33,7 +33,7 @@ object PingActor extends JetlangActor with JetlangThread {
   }
 }
 
-object PongActor extends JetlangActor with JetlangPooled {
+object PongActor extends JetlangActor with JetlangThread {
   var count = 0
 
   def react() = {

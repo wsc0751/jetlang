@@ -2,19 +2,21 @@ import java.util.concurrent.{TimeUnit, CountDownLatch}
 import jetlang.example.{JetlangPooled, JetlangThread, JetlangActor}
 import org.scalatest.FunSuite
 
-case class A()
-case class B()
-case class C()
+case class A(t: String)
+case class B(t: String)
+case class C(t: String)
 
-class NestedActor extends JetlangActor with JetlangThread {
-  val latch = new CountDownLatch(1)
+class NestedActor( count: Int ) extends JetlangActor with JetlangThread {
+  val latch = new CountDownLatch(count)
 
   def react() = {
-    case A => {
+    case A(n) => {
       receive {
-        case B => {
+        case B(n) => {
           receive {
-            case C => latch.countDown
+            case C(n) => {
+              latch.countDown
+            }
           }
         }
       }
@@ -24,7 +26,7 @@ class NestedActor extends JetlangActor with JetlangThread {
 
 class Reply extends JetlangActor with JetlangThread {
   def react() = {
-    case B => sender ! C
+    case B(n) => sender ! C("ReplyTo")
   }
 }
 
@@ -32,18 +34,33 @@ class Starter(replyActor: Reply ) extends JetlangActor with JetlangThread {
   val latch = new CountDownLatch(1)
 
   def react() = {
-    case A => replyActor ! B
-    case C => latch.countDown
+    case A(n) => replyActor ! B("Reply")
+    case C(n) => latch.countDown
   }
 }
 
 class NestedReactTest extends FunSuite {
+
   test("should handleNestedReacts") {
-    val actor = new NestedActor()
+    val actor = new NestedActor(1)
     actor.start
-    actor ! A
-    actor ! B
-    actor ! C
+    actor ! A("A1")
+    actor ! B("B1")
+    actor ! C("C1")
+
+    assert(actor.latch.await(10, TimeUnit.SECONDS))
+    actor.exit
+  }
+
+  test("should handleNestedReactsWithOutOfOrderMessages") {
+    val actor = new NestedActor(2)
+    actor.start
+    actor ! A("A1")
+    actor ! A("A2")
+    actor ! B("B1")
+    actor ! B("B2")
+    actor ! C("C1")
+    actor ! C("C2")
 
     assert(actor.latch.await(10, TimeUnit.SECONDS))
     actor.exit
@@ -54,7 +71,7 @@ class NestedReactTest extends FunSuite {
     val starter = new Starter(reply)
     reply.start
     starter.start
-    starter ! A
+    starter ! A("A")
     assert(starter.latch.await(10, TimeUnit.SECONDS))
     starter.exit
     reply.exit
