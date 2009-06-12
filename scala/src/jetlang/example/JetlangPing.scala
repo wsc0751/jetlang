@@ -41,7 +41,7 @@ object PongActor extends JetlangActor {
   def react() = {
     case Pong => {
       count = count + 1;
-      if (count == 100000)
+      if (count == 1000000)
         JetlangPing.decrementLatch
       else
         PingActor ! Ping
