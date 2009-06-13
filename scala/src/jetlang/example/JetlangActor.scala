@@ -53,11 +53,12 @@ trait JetlangPooled {
 class Pending(msg: Any, sender: ReplyTo) {
   val message = msg
   val replyTo = sender
-  override def toString() : String = msg.toString
+
+  override def toString(): String = msg.toString
 }
 
 trait JetlangActor {
-  val root = react();
+  val root = act();
   var target = root
   val fiber = createFiber(receiveMsg)
   val pending = new ArrayList[Pending]
@@ -65,7 +66,7 @@ trait JetlangActor {
 
   def createFiber(callback: Any => Unit): Fiber
 
-  def react(): PartialFunction[Any, Unit]
+  def act(): PartialFunction[Any, Unit]
 
   def receive(newReact: PartialFunction[Any, Unit]): Unit = target = newReact
 

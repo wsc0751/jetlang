@@ -28,7 +28,7 @@ case class Ping()
 case class Pong()
 
 object PingActor extends JetlangActor with JetlangThread {
-  def react() = {
+  def act() = {
     case Ping => PongActor ! Pong
   }
 }
@@ -36,7 +36,7 @@ object PingActor extends JetlangActor with JetlangThread {
 object PongActor extends JetlangActor with JetlangThread {
   var count = 0
 
-  def react() = {
+  def act() = {
     case Pong => {
       count = count + 1;
       if (count == 1000000)

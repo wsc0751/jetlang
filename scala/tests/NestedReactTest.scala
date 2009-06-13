@@ -6,10 +6,10 @@ case class A(t: String)
 case class B(t: String)
 case class C(t: String)
 
-class NestedActor( count: Int ) extends JetlangActor with JetlangThread {
+class NestedActor(count: Int) extends JetlangActor with JetlangThread {
   val latch = new CountDownLatch(count)
 
-  def react() = {
+  def act() = {
     case A(n) => {
       receive {
         case B(n) => {
@@ -25,22 +25,21 @@ class NestedActor( count: Int ) extends JetlangActor with JetlangThread {
 }
 
 class Reply extends JetlangActor with JetlangThread {
-  def react() = {
+  def act() = {
     case B(n) => sender ! C("ReplyTo")
   }
 }
 
-class Starter(replyActor: Reply ) extends JetlangActor with JetlangThread {
+class Starter(replyActor: Reply) extends JetlangActor with JetlangThread {
   val latch = new CountDownLatch(1)
 
-  def react() = {
+  def act() = {
     case A(n) => replyActor ! B("Reply")
     case C(n) => latch.countDown
   }
 }
 
 class NestedReactTest extends FunSuite {
-
   test("should handleNestedReacts") {
     val actor = new NestedActor(1)
     actor.start

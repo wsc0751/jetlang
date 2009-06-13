@@ -85,13 +85,11 @@
     <option name="IS_EMACS_ERRORS_MODE" value="true" />
     <option name="ADDITIONAL_OPTIONS_STRING" value="" />
   </component>
+  <component name="NewModuleRootManager" />
   <component name="ProjectDetails">
     <option name="projectName" value="jetlang-scala" />
   </component>
-  <component name="ProjectFileVersion" converted="true">
-    <converter id="ror-modules" />
-    <converter id="SelenaRunConfToDiana" />
-  </component>
+  <component name="ProjectFileVersion" converted="true" />
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/jetlang-scala.iml" filepath="$PROJECT_DIR$/jetlang-scala.iml" />

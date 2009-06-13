@@ -6,8 +6,8 @@ import java.util.concurrent.CountDownLatch
 import scala.actors._
 
 object JetlangMain {
-
   val latch = new CountDownLatch(3)
+
   def decrementLatch(): Unit = {
     latch.countDown
   }
@@ -30,48 +30,48 @@ object JetlangMain {
   }
 }
 
-case class Message(id:Int, payload:String)
+case class Message(id: Int, payload: String)
 case class StopMessage()
 
 object DownloadActor extends JetlangActor with JetlangThread {
-  def react() = {
-        case Message(id, payload) => {
-          IndexActor !
-            Message(id, payload.replaceFirst("Requested ", "Downloaded "))
-        }
-        case StopMessage => {
-          IndexActor ! StopMessage
-          JetlangMain.decrementLatch
-          exit
-        }
+  def act() = {
+    case Message(id, payload) => {
+      IndexActor !
+              Message(id, payload.replaceFirst("Requested ", "Downloaded "))
     }
+    case StopMessage => {
+      IndexActor ! StopMessage
+      JetlangMain.decrementLatch
+      exit
+    }
+  }
 }
 
 object IndexActor extends JetlangActor with JetlangThread {
-  def react() = {
-        case Message(id, payload) => {
-          //println("Indexed " + id)
-          WriteActor !
-            Message(id, payload.replaceFirst("Downloaded ", "Indexed "))
-        }
-        case StopMessage => {
-          //println("Stopping Index")
-          WriteActor ! StopMessage
-          JetlangMain.decrementLatch
-          exit
-        }
+  def act() = {
+    case Message(id, payload) => {
+      //println("Indexed " + id)
+      WriteActor !
+              Message(id, payload.replaceFirst("Downloaded ", "Indexed "))
+    }
+    case StopMessage => {
+      //println("Stopping Index")
+      WriteActor ! StopMessage
+      JetlangMain.decrementLatch
+      exit
+    }
   }
 }
 
 object WriteActor extends JetlangActor with JetlangThread {
-  def react() = {
-        case Message(id, payload) => {
-          //println("Wrote " + id)
-        }
-        case StopMessage => {
-          println("Stopping Write")
-          JetlangMain.decrementLatch
-          exit
+  def act() = {
+    case Message(id, payload) => {
+      //println("Wrote " + id)
+    }
+    case StopMessage => {
+      println("Stopping Write")
+      JetlangMain.decrementLatch
+      exit
     }
   }
 }
