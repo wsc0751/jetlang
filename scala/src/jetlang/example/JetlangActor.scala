@@ -7,7 +7,7 @@ import java.util.concurrent.Executors
 import org.jetlang.core.{RunnableExecutorImpl, RunnableExecutor, BatchExecutor}
 import org.jetlang.fibers.{PoolFiberFactory, Fiber, ThreadFiber}
 
-trait JetlangThread {
+trait ThreadedFiber {
   def createFiber(callback: Any => Unit): Fiber = {
     new ThreadFiber(new RunnableExecutorImpl(new ActorExecutor(callback)), null, true)
   }
@@ -46,7 +46,7 @@ object Pool {
   def shutdown(): Unit = executors.shutdown
 }
 
-trait JetlangPooled {
+trait PooledFiber {
   def createFiber(callback: Any => Unit) = Pool.create(callback)
 }
 

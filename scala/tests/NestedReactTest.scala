@@ -1,12 +1,12 @@
 import java.util.concurrent.{TimeUnit, CountDownLatch}
-import jetlang.example.{JetlangPooled, JetlangThread, JetlangActor}
+import jetlang.example.{PooledFiber, ThreadedFiber, JetlangActor}
 import org.scalatest.FunSuite
 
 case class A(t: String)
 case class B(t: String)
 case class C(t: String)
 
-class NestedActor(count: Int) extends JetlangActor with JetlangThread {
+class NestedActor(count: Int) extends JetlangActor with ThreadedFiber {
   val latch = new CountDownLatch(count)
 
   def act() = {
@@ -24,13 +24,13 @@ class NestedActor(count: Int) extends JetlangActor with JetlangThread {
   }
 }
 
-class Reply extends JetlangActor with JetlangThread {
+class Reply extends JetlangActor with ThreadedFiber {
   def act() = {
     case B(n) => sender ! C("ReplyTo")
   }
 }
 
-class Starter(replyActor: Reply) extends JetlangActor with JetlangThread {
+class Starter(replyActor: Reply) extends JetlangActor with ThreadedFiber {
   val latch = new CountDownLatch(1)
 
   def act() = {

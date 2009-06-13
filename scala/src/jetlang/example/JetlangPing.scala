@@ -27,13 +27,13 @@ object JetlangPing {
 case class Ping()
 case class Pong()
 
-object PingActor extends JetlangActor with JetlangThread {
+object PingActor extends JetlangActor with ThreadedFiber {
   def act() = {
     case Ping => PongActor ! Pong
   }
 }
 
-object PongActor extends JetlangActor with JetlangThread {
+object PongActor extends JetlangActor with ThreadedFiber {
   var count = 0
 
   def act() = {

@@ -1,7 +1,7 @@
 import actors.Actor
 import example.Stop
 import java.util.concurrent.{TimeUnit, CountDownLatch}
-import jetlang.example.{JetlangPooled, JetlangThread, JetlangActor}
+import jetlang.example.{PooledFiber, ThreadedFiber, JetlangActor}
 import org.scalatest.FunSuite
 
 class NestedScalaActor extends Actor {
@@ -20,7 +20,7 @@ class NestedScalaActor extends Actor {
               receive {
                 case C => {
                   println("C")
-                    latch.countDown
+                  latch.countDown
                 }
               }
             }
