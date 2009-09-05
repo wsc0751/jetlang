@@ -42,7 +42,7 @@
   
     
             <div class="xleft">
-        Last Published: 2009-02-11
+        Last Published: 2009-09-05
                       </div>
             <div class="xright">            <a href="">Jetlang</a>
             
@@ -87,6 +87,10 @@
             
       
             
+      
+            
+      
+            
             
             
       
@@ -116,7 +120,15 @@
           </li>
                   
     <li class="none">
+                    <a href="plugin-management.html">Plugin Management</a>
+          </li>
+                  
+    <li class="none">
                     <a href="license.html">Project License</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="plugins.html">Project Plugins</a>
           </li>
                   
     <li class="none">
@@ -158,12 +170,15 @@
     </div>
     <div id="bodyColumn">
       <div id="contentBox">
-        <div class="section"><h2>The Team</h2>
+        <a name="The_Team"></a>
+<div class="section"><h2>The Team</h2>
 <p>A successful project requires many people to play many roles. Some members write code or documentation, while others are valuable as testers, submitting patches and suggestions.</p>
 <p>The team is comprised of Members and Contributors. Members have direct access to the source of a project and actively evolve the code-base. Contributors improve the project through submission of patches and suggestions to the Members. The number of Contributors to the project is unbounded. Get involved today. All contributions to the project are greatly appreciated.</p>
+<a name="Members"></a>
 <div class="section"><h3>Members</h3>
 <p>There are no developers working on this project.</p>
 </div>
+<a name="Contributors"></a>
 <div class="section"><h3>Contributors</h3>
 <p>There are no contributors listed for this project. Please check back again later.</p>
 </div>
@@ -173,7 +188,7 @@ function offsetDate(id, offset) {
     var now = new Date();
     var nowTime = now.getTime();
     var localOffset = now.getTimezoneOffset();
-    var developerTime = nowTime + ( offset * 60 * 60 * 1000 ) + ( localOffset * 60 * 1000 );
+    var developerTime = nowTime + ( offset * 60 * 60 * 1000 )+ ( localOffset * 60 * 1000 );
     var developerDate = new Date(developerTime);
 
     document.getElementById(id).innerHTML = developerDate;

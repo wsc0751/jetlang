@@ -1,4 +1,5 @@
 org.jetlang.channels
+org.jetlang.core
 org.jetlang.examples
 org.jetlang.examples.download
 org.jetlang.examples.pingpong

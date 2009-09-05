@@ -1,19 +1,19 @@
--classpath '/Users/osi/code/java/jetlang/target/checkout/target/classes'
+-classpath '/Users/mrettig/code/jetlang/target/checkout/target/classes'
  -encoding
 'ISO-8859-1'
 -protected
 -sourcepath
-'/Users/osi/code/java/jetlang/target/checkout/src/main/java'
+'/Users/mrettig/code/jetlang/target/checkout/src/main/java'
 -author
 -bottom
 'Copyright &#169; 2009. All Rights Reserved.'
 -charset
 'ISO-8859-1'
 -d
-'/Users/osi/code/java/jetlang/target/checkout/target/site/apidocs'
+'/Users/mrettig/code/jetlang/target/checkout/target/site/apidocs'
 -doctitle
-'Jetlang 0.1.7 API'
+'Jetlang 0.2.0 API'
 -use
 -version
 -windowtitle
-'Jetlang 0.1.7 API'
+'Jetlang 0.2.0 API'
