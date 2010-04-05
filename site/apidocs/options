@@ -1,19 +1,24 @@
--classpath '/Users/mrettig/code/jetlang/target/checkout/target/classes'
- -encoding
-'ISO-8859-1'
+-classpath
+'/home/US/proyal/dev/jetlang/target/checkout/target/classes'
+-encoding
+'UTF-8'
 -protected
 -sourcepath
-'/Users/mrettig/code/jetlang/target/checkout/src/main/java'
+'/home/US/proyal/dev/jetlang/target/checkout/src/main/java'
 -author
 -bottom
-'Copyright &#169; 2009. All Rights Reserved.'
+'Copyright &#169; 2010. All Rights Reserved.'
 -charset
-'ISO-8859-1'
+'UTF-8'
 -d
-'/Users/mrettig/code/jetlang/target/checkout/target/site/apidocs'
+'/home/US/proyal/dev/jetlang/target/checkout/target/site/apidocs'
+-docencoding
+'UTF-8'
 -doctitle
-'Jetlang 0.2.0 API'
+'Jetlang 0.2.1 API'
+-link
+'http://java.sun.com/j2se/1.5.0/docs/api'
 -use
 -version
 -windowtitle
-'Jetlang 0.2.0 API'
+'Jetlang 0.2.1 API'
