@@ -1,21 +1,21 @@
 -classpath
-'/home/US/proyal/dev/jetlang/target/checkout/target/classes:/home/US/proyal/dev/jetlang/target/checkout/target/test-classes:/home/US/proyal/.m2/repository/junit/junit/4.4/junit-4.4.jar'
+'/home/mrettig/code/jetlang/target/checkout/target/classes:/home/mrettig/code/jetlang/target/checkout/target/test-classes:/home/mrettig/.m2/repository/junit/junit/4.4/junit-4.4.jar'
 -encoding
 'UTF-8'
 -protected
 -sourcepath
-'/home/US/proyal/dev/jetlang/target/checkout/src/test/java'
+'/home/mrettig/code/jetlang/target/checkout/src/test/java'
 -author
 -bottom
-'Copyright &#169; 2010. All Rights Reserved.'
+'Copyright &#169; 2011. All Rights Reserved.'
 -charset
 'UTF-8'
 -d
-'/home/US/proyal/dev/jetlang/target/checkout/target/site/testapidocs'
+'/home/mrettig/code/jetlang/target/checkout/target/site/testapidocs'
 -docencoding
 'UTF-8'
 -doctitle
-'Jetlang 0.2.4 Test API'
+'Jetlang 0.2.5 Test API'
 -link
 '../apidocs'
 -link
@@ -23,4 +23,4 @@
 -use
 -version
 -windowtitle
-'Jetlang 0.2.4 Test API'
+'Jetlang 0.2.5 Test API'

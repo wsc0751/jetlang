@@ -1,7 +1,8 @@
 org.jetlang
-org.jetlang.channels
 org.jetlang.tests
 org.jetlang.core
+org.jetlang.channels
 org.jetlang.examples
 org.jetlang.examples.download
 org.jetlang.examples.pingpong
+org.jetlang.perf
