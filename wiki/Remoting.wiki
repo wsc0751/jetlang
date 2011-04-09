@@ -1,4 +1,4 @@
-Jetlang Remote provides a language agnostic wire level protocol and threading model for asynchronous distributed messaging.
+Jetlang Remoting provides a language agnostic wire level protocol and threading model for asynchronous distributed messaging.
 
 = Features =
 
