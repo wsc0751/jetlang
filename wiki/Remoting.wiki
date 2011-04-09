@@ -11,8 +11,12 @@ Jetlang Remote provides a language agnostic wire level protocol and threading mo
   * Tight integration with Jetlang threading
   * Message format agnostic - binary, java serialization, json, etc. 
   * Simple text topics
+  * High performance
+  * Embeddable - Client and Acceptor implementations
+  * Distributed - No central server required.
 
 = Code =
 
 [http://code.google.com/p/jetlang/source/browse/#svn%2Fserver Source]
+
 [http://code.google.com/p/jetlang/source/browse/server/src/test/java/com/jetlang/remote/server/example/IntegrationTest.java Examples]
