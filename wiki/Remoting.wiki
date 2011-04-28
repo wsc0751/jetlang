@@ -20,4 +20,4 @@ Jetlang Remoting provides a language agnostic wire level protocol and threading 
 
 [http://code.google.com/p/jetlang/source/browse/#svn%2Fserver Source]
 
-[http://code.google.com/p/jetlang/source/browse/server/src/test/java/com/jetlang/remote/server/example/IntegrationTest.java Examples]
+[http://code.google.com/p/jetlang/source/browse/server/src/test/java/com/jetlang/remote/IntegrationTest.java Examples]
