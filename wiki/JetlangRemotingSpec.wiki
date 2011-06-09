@@ -30,6 +30,8 @@ subscription request sent from client to acceptor.
 == Data 4 ==
 ubyte topicSize, ascii(topicsize) topic, uInt32 bodySize, bytes(bodySize) body
 
+Message sent on a given topic.
+
 == Unsubscribe 5 ==
 ubyte topicSize, ascii(topicsize) topic
 
