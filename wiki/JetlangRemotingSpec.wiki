@@ -28,7 +28,7 @@ Sent as a graceful disconnect/logout message.
 subscription request sent from client to acceptor.
 
 == Data 4 ==
-  *ubyte topicSize, ascii(topicsize) topic, uInt32 bodySize, bytes(bodySize) body
+  * ubyte topicSize, ascii(topicsize) topic, uInt32 bodySize, bytes(bodySize) body
 
 Message sent on a given topic.
 
