@@ -22,6 +22,9 @@ Header only. No content.
 Sent as a graceful disconnect/logout message.
 
 == Subscription 3 ==
-ubyte topicSize, string(topicsize) topic
+ubyte topicSize, ascii(topicsize) topic
 
 subscription request sent from client to acceptor.
+
+== Data 4 ==
+ubyte topicSize, ascii(topicsize) topic, uInt32 bodySize, bytes(uInt32) body
