@@ -11,15 +11,17 @@
 
 Header - 1 unsigned byte
 
-== Heartbeat [1] ==
+== Heartbeat 1 ==
 Header only. No content.
 
 Sent on a configurable schedule. Used by receiver to detect activity timeouts.
 
-== Disconnect [2] ==
+== Disconnect 2 ==
 Header only. No content.
 
 Sent as a graceful disconnect/logout message.
 
-== Subscription [3] ==
-[ubyte
+== Subscription 3 ==
+ubyte topicSize, string(topicsize) topic
+
+subscription request sent from client to acceptor.
