@@ -4,6 +4,7 @@
 
  * Asynchronous
  * TCP Based
+ * Big Endian
 
 
 = Message Types =
