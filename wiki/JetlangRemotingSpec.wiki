@@ -27,4 +27,15 @@ ubyte topicSize, ascii(topicsize) topic
 subscription request sent from client to acceptor.
 
 == Data 4 ==
-ubyte topicSize, ascii(topicsize) topic, uInt32 bodySize, bytes(uInt32) body
+ubyte topicSize, ascii(topicsize) topic, uInt32 bodySize, bytes(bodySize) body
+
+== Unsubscribe 5 ==
+ubyte topicSize, ascii(topicsize) topic
+
+Unsubscribe sent from client to acceptor.
+
+== DataRequest 6 ==
+int32 reqId, ubyte topicSize, ascii(topicSize), uInt32 bodySize, bytes(bodySize) body
+
+== DataReply 7 ==
+int32 reqId, ubyte topicSize, ascii(topicSize), uInt32 bodySize, bytes(bodySize) body
