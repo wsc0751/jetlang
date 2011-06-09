@@ -3,7 +3,7 @@ Jetlang Remoting provides a language agnostic wire level protocol and threading 
 
 = Features =
 
-  * Language agnostic wire format
+  * Language agnostic messaging protocol - JetlangRemotingSpec
   * Stateful distributed sessions
   * Session heartbeating
   * Session lifecycles - Connect, Heartbeat, Session Timeout, Logout, Disconnect
