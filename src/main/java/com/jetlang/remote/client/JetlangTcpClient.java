@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.nio.charset.Charset;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -50,7 +51,7 @@ public class JetlangTcpClient implements JetlangClient {
     private Disposable hbSchedule;
     private final Channel<HeartbeatEvent> Heartbeat = channel();
     private AtomicInteger reqId = new AtomicInteger();
-    private final Map<Integer, Req> pendingRequests = new HashMap<Integer, Req>();
+    private final Map<Integer, Req> pendingRequests = Collections.synchronizedMap(new HashMap<Integer, Req>());
 
     public interface ErrorHandler {
 
