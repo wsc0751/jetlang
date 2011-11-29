@@ -6,3 +6,4 @@ org.jetlang.examples
 org.jetlang.examples.download
 org.jetlang.examples.pingpong
 org.jetlang.perf
+org.jetlang.fibers

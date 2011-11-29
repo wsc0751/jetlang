@@ -4,5 +4,6 @@ org.jetlang.core
 org.jetlang.examples
 org.jetlang.examples.download
 org.jetlang.examples.pingpong
+org.jetlang.fibers
 org.jetlang.perf
 org.jetlang.tests
