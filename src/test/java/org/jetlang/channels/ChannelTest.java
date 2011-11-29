@@ -297,7 +297,7 @@ public class ChannelTest {
     private void runPerfTest(Fiber bus) throws InterruptedException {
         MemoryChannel<String> channel = new MemoryChannel<String>();
 
-        final int max = 10000000;
+        final int max = 100000000;
         final CountDownLatch reset = new CountDownLatch(1);
         Callback<String> onMsg = new Callback<String>() {
             int count = 0;
